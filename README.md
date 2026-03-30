@@ -24,14 +24,15 @@
 
 操作提示：
 
-若接收到非規定內的輸入資料，會跳出通知視窗
+若接收到非規定內的輸入資料，在原視窗跳出提示詞
 
-．身高必須大於零
+．請輸入有效且大於零的身高數值。
 
-．請輸入有效的身高數值
+．請輸入有效且大於零的體重數值。
 
-．體重必須大於零
+若按下「清除」或「Esc」會跳出確認視窗
 
-．請輸入有效的體重數值
+．是否清除所有資料？(是/否)
 
-<img width="1055" height="712" alt="BMI計算機" src="https://github.com/user-attachments/assets/93023ffc-f0be-458e-9717-32027c8139ce" />
+<img width="1055" height="712" alt="BMI計算機" src="https://github.com/user-attachments/assets/b289d98a-705d-48f1-95f6-748bc50f48c4" />
+

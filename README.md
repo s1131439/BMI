@@ -14,5 +14,4 @@
 按下鍵盤「Enter」即會呈現BMI值以及身體狀況
 按下鍵盤「Esc」即會清除身高值即體重值，以及BMI值和身體狀況
 
-<img width="472" height="306" alt="image" src="https://github.com/user-attachments/assets/10dcf81c-b333-443b-91f1-0e798460d5d5" />
 <img width="1055" height="712" alt="BMI計算機" src="https://github.com/user-attachments/assets/93023ffc-f0be-458e-9717-32027c8139ce" />

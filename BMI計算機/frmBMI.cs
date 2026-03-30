@@ -25,50 +25,30 @@ namespace BMI計算機
             this.txtHeight.KeyDown += txtHeight_KeyDown;
             // 在 txtWeight 的 KeyDown 事件中，按「向上鍵」跳回 txtHeight
             this.txtWeight.PreviewKeyDown += txtWeight_PreviewKeyDown;
-            this.txtWeight.KeyDown += txtWeight_KeyDown;
+            this.txtWeight.KeyDown += txtWeight_KeyDown; 
+            // 初始化錯誤訊息 Label
+            this.lblError.Text = "";
+            this.lblError.ForeColor = Color.Red;
         }
         private void btnRun_Click(object sender, EventArgs e)
         {
+            lblError.Text = ""; // 每次計算前清空錯誤訊息
             bool isHeightValid = Double.TryParse(this.txtHeight.Text, out double height);
             bool isWeightValid = Double.TryParse(this.txtWeight.Text, out double weight);
 
-            //驗證身高輸入
-            if (isHeightValid)
+            // 驗證身高
+            if (!isHeightValid || height <= 0)
             {
-                if (height <= 0)
-                {
-                    MessageBox.Show("身高必須大於零。", "身高值錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //將焦點設置回身高輸入框並選取全部文字，方便使用者重新輸入
-                    this.txtHeight.Focus();
-                    this.txtHeight.SelectAll();
-                    return;
-                }
-            }
-            else
-            {
-                MessageBox.Show("請輸入有效的身高數值。", "身高值錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //將焦點設置回身高輸入框並選取全部文字，方便使用者重新輸入
+                lblError.Text = "請輸入有效且大於零的身高數值。";
                 this.txtHeight.Focus();
                 this.txtHeight.SelectAll();
                 return;
             }
 
-            //驗證體重輸入
-            if (isWeightValid)
+            // 驗證體重
+            if (!isWeightValid || weight <= 0)
             {
-                if (weight <= 0)
-                {
-                    MessageBox.Show("體重必須大於零。", "體重值錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //將焦點設置回體重輸入框並選取全部文字，方便使用者重新輸入
-                    this.txtWeight.Focus();
-                    this.txtWeight.SelectAll();
-                    return;
-                }
-            }
-            else
-            {
-                MessageBox.Show("請輸入有效的體重數值。", "體重值錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //將焦點設置回體重輸入框並選取全部文字，方便使用者重新輸入
+                lblError.Text = "請輸入有效且大於零的體重數值。";
                 this.txtWeight.Focus();
                 this.txtWeight.SelectAll();
                 return;
@@ -91,41 +71,16 @@ namespace BMI計算機
                 Color.FromArgb(120, 90, 150)
 };
 
-            //顯示BMI結果
-            string strResult = "";
-            Color colorResult = Color.Black;
-            int iResultIndex = 0;
+            int iResultIndex;
+            if (bmi < 18.5) iResultIndex = 0;
+            else if (bmi < 24) iResultIndex = 1;
+            else if (bmi < 27) iResultIndex = 2;
+            else if (bmi < 30) iResultIndex = 3;
+            else if (bmi < 35) iResultIndex = 4;
+            else iResultIndex = 5;
 
-            if (bmi < 18.5)
-            {
-                iResultIndex = 0;
-            }
-            else if (bmi >= 18.5 && bmi < 24)
-            {
-                iResultIndex = 1;
-            }
-            else if (bmi >= 24 && bmi < 27)
-            {
-                iResultIndex = 2;
-            }
-            else if (bmi >= 27 && bmi < 30)
-            {
-                iResultIndex = 3;
-            }
-            else if (bmi >= 30 && bmi < 35)
-            {
-                iResultIndex = 4;
-            }
-            else
-            {
-                iResultIndex = 5;
-            }
-
-            strResult = strResultList[iResultIndex];
-            colorResult = colorList[iResultIndex];
-
-            this.lblResult.Text = $"{bmi:F2} ({strResult})";
-            this.lblResult.BackColor = colorResult;
+            this.lblResult.Text = $"{bmi:F2} ({strResultList[iResultIndex]})";
+            this.lblResult.BackColor = colorList[iResultIndex];
         }
         private void ClearInput()
         {
@@ -133,20 +88,28 @@ namespace BMI計算機
             this.txtWeight.Text = "";
             this.lblResult.Text = "";
             this.lblResult.BackColor = Color.Transparent;
-
+            this.lblError.Text = "";
             // 把焦點回到身高欄位
             this.txtHeight.Focus();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            ClearInput();
+            var result = MessageBox.Show("是否清除所有資料？", "確認清除", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                ClearInput();
+            }
         }
         private void frmBMI_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
-                ClearInput();
+                var result = MessageBox.Show("是否清除所有資料？", "確認清除", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    ClearInput();
+                }
             }
         }
         // 在身高欄位按「向下鍵」跳到體重

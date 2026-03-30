@@ -53,6 +53,7 @@
             this.lblInput = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblOutput = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -160,7 +161,7 @@
             this.lblBMICalculate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(237)))), ((int)(((byte)(240)))));
             this.lblBMICalculate.Location = new System.Drawing.Point(73, 45);
             this.lblBMICalculate.Name = "lblBMICalculate";
-            this.lblBMICalculate.Size = new System.Drawing.Size(250, 60);
+            this.lblBMICalculate.Size = new System.Drawing.Size(246, 59);
             this.lblBMICalculate.TabIndex = 12;
             this.lblBMICalculate.Text = "BMI計算機";
             // 
@@ -322,7 +323,7 @@
             this.panel2.Controls.Add(this.lblOutput);
             this.panel2.Controls.Add(this.lblResult);
             this.panel2.Controls.Add(this.lblBMI);
-            this.panel2.Location = new System.Drawing.Point(83, 436);
+            this.panel2.Location = new System.Drawing.Point(84, 479);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(542, 159);
             this.panel2.TabIndex = 20;
@@ -338,12 +339,21 @@
             this.lblOutput.TabIndex = 21;
             this.lblOutput.Text = "輸出";
             // 
+            // lblError
+            // 
+            this.lblError.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblError.Location = new System.Drawing.Point(84, 433);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(542, 57);
+            this.lblError.TabIndex = 21;
+            // 
             // frmBMI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(49)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(1123, 673);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
@@ -359,7 +369,6 @@
             this.Controls.Add(this.txtStandar5);
             this.Controls.Add(this.txtStandar4);
             this.Controls.Add(this.txtStandar2);
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmBMI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -399,6 +408,7 @@
         private System.Windows.Forms.Label lblInput;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblOutput;
+        private System.Windows.Forms.Label lblError;
     }
 }
 

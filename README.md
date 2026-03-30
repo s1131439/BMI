@@ -1,5 +1,18 @@
 # BMI計算機
 
-輸入身高和體重可以計算BMI值，並且給出身體狀況
+輸入身高和體重可以計算BMI值，並且給出身體狀況，視窗右方呈現BMI分類參考
+
+滑鼠操作：
+點選身高欄位並輸入身高值
+點選體重欄位並輸入體重值
+按下「計算」即會呈現BMI值以及身體狀況
+按下「清除」即會清除身高值即體重值，以及BMI值和身體狀況
+
+鍵盤操作：
+於身高欄位輸入身高值，按下鍵盤「⭣」即會跳轉到體重欄位
+於體重欄位輸入體重值，按下鍵盤「⭡」即會跳轉到身高欄位
+按下鍵盤「Enter」即會呈現BMI值以及身體狀況
+按下鍵盤「Esc」即會清除身高值即體重值，以及BMI值和身體狀況
 
 <img width="472" height="306" alt="image" src="https://github.com/user-attachments/assets/10dcf81c-b333-443b-91f1-0e798460d5d5" />
+<img width="1055" height="712" alt="BMI計算機" src="https://github.com/user-attachments/assets/93023ffc-f0be-458e-9717-32027c8139ce" />
